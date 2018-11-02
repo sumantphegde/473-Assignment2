@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href ="css/style.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+
+</head>
+
+<body>
+  <form>
+  <div id="second">
+      Last Name: <input type="text" id="formInput">
+      <input type="button" id="buttonId" onclick="search()" value="Submit">
+      <script id="stdTemplate" type="text/x-handlebars-template">
+          <ul>
+          {{#students}}
+            <li class="students"><a href="#">{{.}}</a></li>
+          {{/students}}
+        </ul>
+      </script>
+
+    </div>
+    <div>
+      <label>Grades for </label>
+    </div>
+  </div>
+
+</form>
+<script src='js/model/student_details.js'></script>
+<script src='js/controller/search.js'></script>
+</body>
+  <div id="list"></div>
+</html>
+
+<!--Name: <input id="nameId" type="text" value="..."><br><br>
+<input id="buttonId" type="submit"><br><br>
+
+<div id="containerId"><div>
+
+ <script type="text/x-handlebars-template" id="myTempId">
+  <div>hello {{name}} - using template<div>
+</script>-->
