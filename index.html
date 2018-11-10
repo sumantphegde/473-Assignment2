@@ -3,46 +3,68 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Assignment 2</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href ="css/style.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-
+  <script src='js/globalVars.js'></script>
+  <script src='js/model/std_model.js'></script>
+  <script src='js/view/std_view.js'></script>
 </head>
 
 <body>
-  <form>
-  <div id="second">
-      Last Name: <input type="text" id="formInput">
-      <input type="button" id="buttonId" onclick="search()" value="Submit">
-      <script id="stdTemplate" type="text/x-handlebars-template">
-          <ul>
-          {{#students}}
-            <li class="students"><a href="#">{{.}}</a></li>
-          {{/students}}
-        </ul>
-      </script>
-
-    </div>
-    <div>
-      <label>Grades for </label>
+  <br>
+  <div class="shadow-lg card form" align="center" border="1" style="height:70px;width:850px;margin:auto;">
+    <div class="card-body">
+      <br>
+      <label class="col-form-label">Last Name:</label>
+      <input type="text" class="form-control-plaintext" id="formInput">
+      <!--Enter last name of the students to be searched -->
+      <input type="button" id="buttonId" class="btn btn-light" onclick="stdsearch(event)" value="Search">
     </div>
   </div>
 
-</form>
-<script src='js/model/student_details.js'></script>
-<script src='js/controller/search.js'></script>
+  <!-- Handlebar template to show student list-->
+  <script id="stdTemplate" type="text/x-handlebars-template">
+    <br>
+          <label>Students found:</label><br>
+          <ul id="bourne">
+          {{#students}}
+            <p id="students"><a href="#" onclick="courseSearch('{{id}}');">{{fname}} {{lname}}</a></p>
+          {{/students}}
+        </ul>
+      </script>
+  <!-- Handlebar template to show course details-->
+  <script id="stdTemplate2" type="text/x-handlebars-template">
+    <br>
+    <label id="grade"></label>
+        <br>
+        <table border="1" align="center">
+          <tr>
+          <th>Course</th>
+          <th id="gpa_header">GPA</th>
+          </tr>
+          {{#courses}}
+          <tr><td id="courses">{{course}}</td>
+            <td id="gpa">{{gpa}}</td>
+          </tr>
+          {{/courses}}
+        </tr>
+      </table>
+      <br>
+    </script>
+  <script src='js/controller/std_controller.js'></script>
+  <!-- Division to display outputs-->
+  <div class="card container2 form shadow" align="center" border="1" style="height:auto;width:850px;margin:auto;">
+    <div class="section1">
+      <div id="list"></div>
+    </div>
+    <div class="section2">
+      <div id="tbl"></div>
+    </div>
+  </div>
 </body>
-  <div id="list"></div>
+
 </html>
-
-<!--Name: <input id="nameId" type="text" value="..."><br><br>
-<input id="buttonId" type="submit"><br><br>
-
-<div id="containerId"><div>
-
- <script type="text/x-handlebars-template" id="myTempId">
-  <div>hello {{name}} - using template<div>
-</script>-->
