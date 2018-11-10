@@ -30,11 +30,15 @@
   <script id="stdTemplate" type="text/x-handlebars-template">
     <br>
           <label>Students found:</label><br>
+          {{#if students}}
           <ul id="bourne">
           {{#students}}
             <p id="students"><a href="#" onclick="courseSearch('{{id}}');">{{fname}} {{lname}}</a></p>
           {{/students}}
         </ul>
+        {{else}}
+        <p> No Student found by this name</p>
+        {{/if}}
       </script>
   <!-- Handlebar template to show course details-->
   <script id="stdTemplate2" type="text/x-handlebars-template">
